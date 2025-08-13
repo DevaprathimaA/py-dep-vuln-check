@@ -1,16 +1,21 @@
 import os
+import argparse
 from scanner_core.file_discovery import discover_dependency_files
 from parsers import python_parser, npm_parser, maven_parser
 from reports import html_report, json_report, xml_report
 from utils import osv_scanner, suppressor
 
-def scan_project():
+def scan_project(target_path="."):
     all_dependencies = []
 
-    # 🔍 Discover dependency files
-    files = discover_dependency_files()
+    # 🔍 Discover dependency files in the user's project
+    files = discover_dependency_files(target_path)
+    if not files:
+        print(f⚠️ No supported dependency files found in: {target_path}")
+        return
+
     for entry in files:
-        print(f"Found {entry['language']} file: {entry['file_path']}")
+        print(f"🔍 Found {entry['language']} file: {entry['file_path']}")
 
         # 🧩 Route to correct parser
         if entry["language"] == "python":
@@ -37,8 +42,12 @@ def scan_project():
     json_report.generate(results, "reports_output/report.json")
     xml_report.generate(results, "reports_output/report.xml")
 
-    print(f"✅ Scan complete. {len(results)} vulnerable packages found.")
+    print(f"\n✅ Scan complete. {len(results)} vulnerable packages found.")
     print("📄 Reports saved in reports_output/")
 
 if __name__ == "__main__":
-    scan_project()
+    parser = argparse.ArgumentParser(description="Scan a project for vulnerable dependencies.")
+    parser.add_argument("path", nargs="?", default=".", help="Path to the project directory to scan")
+    args = parser.parse_args()
+
+    scan_project(args.path)
