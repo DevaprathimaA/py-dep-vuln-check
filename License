@@ -1,0 +1,20 @@
+
+### ✅ How to add:
+- If GitHub already created a README for you, click it → then click the pencil ✏️ to edit
+- If not, click **“Add file”** → **“Create new file”**
+- Name it: `README.md`
+- Paste the content above
+- Commit with message: `"Add README.md"`
+
+---
+
+## 📄 `LICENSE`
+This gives legal permission for others to use, modify, and share your code.
+
+### ✅ What to paste (MIT License):
+```text
+MIT License
+
+Copyright (c) 2025 Devaprathima
+
+Permission is hereby granted, free of charge, to any person obtaining a copy...
