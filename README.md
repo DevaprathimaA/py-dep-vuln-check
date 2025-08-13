@@ -4,6 +4,4 @@ This tool automatically detects and scans common dependency files across Python,
 
 ```bash
 python scanner.py /Users/devaprathima/my-project
-
-```bash
 python scanner.py
