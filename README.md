@@ -1,14 +1,6 @@
-# py-dep-vuln-check
+### 🔍 Auto-Discovery of Dependency Files
 
-A multi-language dependency vulnerability scanner using OSV.dev. Supports Python, npm, and Maven projects.
+This tool automatically detects and scans common dependency files across Python, Node.js, and Java projects. No need to rename or move files—just run:
 
-## Features
-- Scans `requirements.txt`, `package-lock.json`, and `pom.xml`
-- Checks for known vulnerabilities via OSV.dev
-- Generates HTML, JSON, and XML reports
-- Supports suppression of known CVEs
-- GitHub Actions integration
-
-## Usage
 ```bash
 python scanner.py
