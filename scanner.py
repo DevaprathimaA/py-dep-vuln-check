@@ -11,7 +11,7 @@ def scan_project(target_path="."):
     # 🔍 Discover dependency files in the user's project
     files = discover_dependency_files(target_path)
     if not files:
-        print(f⚠️ No supported dependency files found in: {target_path}")
+        print(f"⚠️ No supported dependency files found in: {target_path}")
         return
 
     for entry in files:
