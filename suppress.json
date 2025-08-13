@@ -1,0 +1,3 @@
+{
+  "suppress": ["GHSA-xxxx", "CVE-2023-12345"]
+}
